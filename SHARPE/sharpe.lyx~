@@ -1,0 +1,401 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass report
+\begin_preamble
+\usepackage{multicol}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 1.75cm
+\rightmargin 1.5cm
+\bottommargin 2cm
+\secnumdepth 5
+\tocdepth 2
+\paragraph_separation skip
+\defskip 8bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\noindent
+\align left
+
+\series bold
+\shape smallcaps
+\size largest
+Note on the famous Sharpe-ratio
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+
+\series bold
+\size larger
+Marcell Kujbus
+\end_layout
+
+\begin_layout Standard
+Quantitative financial engineer
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0
+\noindent
+———————————————————————————————————————————
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+parindent{15pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+parskip}{0pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+
+\series bold
+1.
+ Introduction
+\end_layout
+
+\begin_layout Standard
+According to the Markowitz portfolio theory, allocating among tradable assets
+ on the market yields to a convex optimization problem.
+ That is, by the linearity of expectation and the by far non-linearity of
+ variance, one can always diversify his/her portfolio to obtain a unambiguously
+ better portfolio, if by better we mean greater expected return whilst same
+ volatility level or less volatility while having the same expectation.
+ Given a utility function of the trader, the optimization problem is always
+ solvable, and of course it is dependent on personal preferences.
+ 
+\end_layout
+
+\begin_layout Standard
+However, if there happens to exist a risk-free investment opptunity in the
+ market, then the allocation weights among the risky assets do not depend
+ on the utility function, which is a breathtaking result.
+ We will derive on the following pages, that the optimal choice of portfolio
+ is the one, that maximizes the so-called Sharpe-ratio.
+ It is a very intuitive metric, namely 
+\begin_inset Formula $Sharpe=\frac{E(r_{portfolio})-r_{riskfree}}{\sigma_{portfolio}}$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The 
+\begin_inset Formula $E$
+\end_inset
+
+ sign stands for expectation
+\end_layout
+
+\end_inset
+
+, which measures a portfolio's performance in terms of its volatility.
+ 
+\end_layout
+
+\begin_layout Standard
+By adding more and more assets into the picture, we can 
+\begin_inset Formula $never$
+\end_inset
+
+ decrease the Sharpe-ratio.
+ The Capital Asset Pricing Model (CAPM) tells us, that in an ideal world,
+ everybody is holding the market portfolio, which consists of all the possible
+ trading opportunities in the world with positive weights relative to their
+ market capitalization.
+ The market portfolio is then maximizing the Sharpe-ratio, and every rational
+ trader allocates his/her money between the risk-free opportunity and the
+ market portfolio.
+ 
+\end_layout
+
+\begin_layout Standard
+The note proceeds as follows: first, I would like to clarify what I mentioned
+ in the introduction part, then I am going to do some math where I am digging
+ deeper into theory.
+ I will show, that the Sharpe-ratio is not a metric that was found by 'accident'
+, instead it is the market price of risk taken.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+
+\series bold
+3.
+ Markowitz portfolio theory - the basics
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ be the vector of tradable assets on the market with return expectations
+ 
+\begin_inset Formula $\underline{e}$
+\end_inset
+
+, with a covariance matrix 
+\begin_inset Formula $\sum,$
+\end_inset
+
+ between these returns.
+ It is a known fact, that if we assign weights 
+\begin_inset Formula $\underline{w}$
+\end_inset
+
+ to the assets, then 
+\begin_inset Formula $E(w^{T}x)=w^{T}E(x)=w^{T}e$
+\end_inset
+
+, and 
+\begin_inset Formula $Var(w^{T}x)=w^{T}\sum w$
+\end_inset
+
+.
+ The formulas exactly mean that the expectation is a linear operator, not
+ like the variance.
+ Moreover, the variances are summable if and only if the returns of the
+ assets are independent from each other.
+\end_layout
+
+\begin_layout Standard
+The mathematics here is crucial, as this little 
+\begin_inset Quotes eld
+\end_inset
+
+issue
+\begin_inset Quotes erd
+\end_inset
+
+ about the variances imply that we can diversify our portfolio, to obtain
+ a smaller variance level after the portfolio allocation.
+ In the following I assume, that the trader is rational, risk-averse, moreover
+ he/she prefers a greater return to a smaller.
+\end_layout
+
+\begin_layout Paragraph*
+Fact1
+\end_layout
+
+\begin_layout Standard
+If there is at least one non-zero correlation between the returns of the
+ assets, then it is always optimal to assign weights to at least those two
+ assets in the portfolio, that are correlated.
+ This strategy strictly dominates the single-asset portfolio, as it can
+ yield either the same volatility with greater return, or the same return
+ with smaller volatility level, depening on the weights.
+ See 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+figure1
+\end_layout
+
+\end_inset
+
+ for graphical proof.
+\end_layout
+
+\begin_layout Paragraph*
+Fact2
+\end_layout
+
+\begin_layout Standard
+By adding an additional asset into the pool, we are surely in a 
+\begin_inset Formula $better,\ or\ equal$
+\end_inset
+
+ situation than we were previously.
+ Indeed, by assigning a zero weight to the new asset, we are right in the
+ situation where we were before, so we can reach the same portfolios that
+ we could before.
+ Hence, if we denote by 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ the set of all possible portfolios reachable before adding the new asset,
+ and by 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ the respective set after the addition, then 
+\begin_inset Formula $S_{0}\subset S_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Irodalomjegyzék
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+bibsep}{0pt plus 0.3ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0
+\noindent
+\align block
+
+\size footnotesize
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "../../Corvinus/Szakdoga/szakirodalom/forrasok_vegleges"
+options "authordate3"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
